@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="bg-white antialiased">
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>AnimatedGif</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -11,17 +14,8 @@
   </head>
 
   <body>
-    <p class="text-purple-700 text-5x1">
-    <%= link_to 'Gifs', root_path %>
-      <% if user_signed_in? %>
-        <%= link_to "Account", edit_user_registration_path %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete%>
-      <% else %>
-        <%= link_to "Sign Up", new_user_registration_path %>
-        <%= link_to "Login", new_user_session_path %>
-      <% end %>
-    
-    </p>
+
+    <%= render "shared/navbar" %>
 
     <%= yield %>
   </body>
