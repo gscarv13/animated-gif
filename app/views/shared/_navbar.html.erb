@@ -1,0 +1,28 @@
+<div class="flex bg-white border-b border-gray-200 z-100 h-16 items-center">
+  <div class="w-full max-w-screen-xl relative mx-auto px-6">
+    <div class="flex items-center -mx-6">
+
+
+      <div class="flex-grow">
+        <div class="flex items-center">
+          <%= link_to "AnimatedGif.me", root_path, class: "block lg:mr-4" %>
+        </div>
+      </div>
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to "Account", edit_user_registration_path %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete%>
+        <% else %>
+          <%= link_to "Sign Up", new_user_registration_path %>
+          <%= link_to "Login", new_user_session_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>
+    <%= link_to 'Gifs', root_path %>
+      
+    
+    </p>
