@@ -1,4 +1,5 @@
 class GifsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_gif, only: %i[ show edit update destroy ]
 
   # GET /gifs or /gifs.json
@@ -8,6 +9,7 @@ class GifsController < ApplicationController
 
   # GET /gifs/1 or /gifs/1.json
   def show
+    @gif = Gif.find(params[:id])
   end
 
   # GET /gifs/new
@@ -21,7 +23,7 @@ class GifsController < ApplicationController
 
   # POST /gifs or /gifs.json
   def create
-    @gif = Gif.new(gif_params)
+    @gif = current_user.gifs.new(gif_params)
 
     respond_to do |format|
       if @gif.save
@@ -57,13 +59,14 @@ class GifsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_gif
-      @gif = Gif.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def gif_params
-      params.require(:gif).permit(:image, :tag_list)
-    end
+   # Use callbacks to share common setup or constraints between actions.
+   def set_gif
+     @gif = current_user.gifs.find(params[:id])
+   end
+
+   # Only allow a list of trusted parameters through.
+   def gif_params
+     params.require(:gif).permit(:image, :tag_list)
+   end
 end
