@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<div class="container mx-auto">
   <%= image_tag @gif.image_url %>
 
 <p> Uploaded by <%= @gif.user.name %></p>
@@ -8,3 +7,4 @@
 <% if user_signed_in? && current_user == @gif.user %>
   <%= link_to 'Edit', edit_gif_path(@gif) %>
 <% end %>
+</div>
