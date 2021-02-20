@@ -5,5 +5,7 @@
 
 a {
   @apply text-green-500;
-  @apply bg-gray-900; 
+  &:hover {
+    @apply text-lg
+  }
 }
