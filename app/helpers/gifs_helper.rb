@@ -6,4 +6,9 @@ module GifsHelper
 
     safe_join list, ', ' # this will join the html links by comman and render as HTML
   end
+
+  def full_gif_url(gif)
+    gif.image_url(host: request.protocol + request.host_with_port)
+  end
+
 end
