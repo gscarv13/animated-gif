@@ -13,7 +13,8 @@ class GifsController < ApplicationController
   end
 
   def random
-    @gif = Gif.tagged_with(params[:tag]).order("RANDOM()").first
+    @gif = Gif.tagged_with(params[:tag]).random # controler method to grab random gifs
+    @gif ||= Gif.random
     render :show
   end
 
