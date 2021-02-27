@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :gifs
   devise_for :users
+  resources :gifs
+  resources :users, only: [:show]
 
   get '*tag', to: 'gifs#random', as: :random_gif # this maps any tag to random action
 
