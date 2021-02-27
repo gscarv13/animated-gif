@@ -1,8 +1,8 @@
 <div class="w-64 mx-auto mt-10">
-  <%= image_tag @gif.image_url %>
+  <%= image_tag @gif.image_url, class: "mx-auto" %>
 
 <div class="flex justify-between text-xs my-2">
-<div> Uploaded by <%= @gif.user.name %></div>
+<div> Uploaded by <%= link_to @gif.user.name, @gif.user %></div>
   <div>
     <% if user_signed_in? && current_user == @gif.user %>
       <%= link_to 'Edit', edit_gif_path(@gif) %>
