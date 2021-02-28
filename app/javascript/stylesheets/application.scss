@@ -9,3 +9,27 @@ a {
     @apply text-lg
   }
 }
+
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+
+.btn-purple {
+  @apply bg-purple-500 text-white;
+
+  &:hover {
+    @apply bg-purple-400;
+  }
+
+  &:focus {
+    @apply outline-none;
+  }
+}
+
+.form-control {
+  @apply bg-gray-200 appearance-none border-2 border-gray-200 w-full py-2 px-4 text-gray-700 leading-tight;
+
+  &:focus {
+    @apply outline-none bg-white border-purple-500;
+  }
+}
