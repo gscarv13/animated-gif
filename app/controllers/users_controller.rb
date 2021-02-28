@@ -6,13 +6,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @gifs = @user.gifs.sorted
+    @gifs = @user.gifs.includes(:tags, :user).sorted
     render 'gifs/index'
   end
 
   private
 
   def set_user
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
   end
 end
